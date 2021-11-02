@@ -7,7 +7,7 @@ const seattle = {
     avgCookiesSold: 6.3,
     hourlyCust: 0,
     cookiesSold: 0,
-    cookiesSoldByHour: [],
+    cookiesSoldByHour: [10, 8],
     //hours: ['6am: ', '7am: ', '8am: ', '9am: ', '10am: ', '11am: ', '12pm: ', '1pm: ', '2pm: ', '3pm: ', '4pm: ', '5pm: ', '6pm: ', '7pm: '],
     assignHourlyCust: function () {
         this.hourlyCust = randomInRange(23, 65);
@@ -48,26 +48,23 @@ function randomInRange(min, max) {
 // 10. add li to ul X
 // 11. add hour + cookies sold to each hour
 
-// 8. grab parent element from html
 
 
-//seattleUl.appendChild('li');
 const hours = ['6am: ', '7am: ', '8am: ', '9am: ', '10am: ', '11am: ', '12pm: ', '1pm: ', '2pm: ', '3pm: ', '4pm: ', '5pm: ', '6pm: ', '7pm: '];
-
-// make li in function
 
 const divElem = document.getElementById('seattle'); // get parent element
 const ulElem = document.createElement('ul'); // make child ul element
 divElem.appendChild(ulElem); // append ul to div
 
 
-// make li in function
+
 function populateSalesList() {
     for (let i = 0; i < hours.length; i++) {
-        // make li element based on i
-        const salesLi = document.createElement('li'); // make child li element
+        const listText = `${hours[i]}: ${seattle.cookiesSoldByHour[i]} cookies`;
+        // make child li element
+        const salesLi = document.createElement('li');
         // append li to ul
-        ulElem.appendChild(salesLi).innerHTML = hours[i];  
+        ulElem.appendChild(salesLi).textContent = listText;
     }
 }
 

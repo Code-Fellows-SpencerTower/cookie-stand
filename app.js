@@ -5,10 +5,10 @@ const seattle = {
     minCust: 23,
     maxCust: 65,
     avgCookiesSold: 6.3,
-    hourlyCust: this.assignHourlyCust,
-    cookiesSold: this.assignCookiesSold,
+    hourlyCust: 0,
+    cookiesSold: 0,
     cookiesSoldByHour: [],
-    hours: ['6am: ', '7am: ', '8am: ', '9am: ', '10am: ', '11am: ', '12pm: ', '1pm: ', '2pm: ', '3pm: ', '4pm: ', '5pm: ' , '6pm: ', '7pm: '],
+    //hours: ['6am: ', '7am: ', '8am: ', '9am: ', '10am: ', '11am: ', '12pm: ', '1pm: ', '2pm: ', '3pm: ', '4pm: ', '5pm: ', '6pm: ', '7pm: '],
     assignHourlyCust: function () {
         this.hourlyCust = randomInRange(23, 65);
         return this.hourlyCust;
@@ -18,13 +18,14 @@ const seattle = {
         this.cookiesSold = this.avgCookiesSold * this.hourlyCust;
         return this.cookiesSold;
     },
+    /*
     assignCookiesSoldByHour: function () {
-        let hours = this.hours;
         for (let i = 0; i < this.hours.length; i += 1) {
-            this.cookiesSoldByHour.push(hours[i] + this.cookiesSold + " cookies");
+            this.cookiesSoldByHour.push(this.hours[i] + this.cookiesSold + " cookies");
         }
         return this.cookiesSoldByHour;
     }
+    */
 
 }
 
@@ -39,20 +40,51 @@ function randomInRange(min, max) {
 // 3. make function to calculate cookies sold each hour X
 // 4. make array with location hours X
 // 5. make empty array for hours + cookies sold X
-// 6. make function that populates empty array with hour and cookies sold in a string X
-// 7. add 'seattle' as id to div
-// 8. grab parent element from html
-// 9. add ul to parent element
+// 6. make function that populates empty array with hour and cookies sold in a string
+// 7. add 'seattle' as id to div X
+// 8. grab parent element from html X
+// 9. add ul to parent element X
 // 10. add li to ul
 // 11. add hour + cookies sold to each hour
 
+// 8. grab parent element from html
 
-//let customers = seattle.assignHourlyCust();
-//console.log("customers: " + customers);
+const seattleDivElem = document.getElementById('seattle'); // get parent element
+
+const seattleUlElem = document.createElement('ul'); // make child ul element
+//console.log("seattleUl: " + seattleUl);
+
+const seattleLiElem = document.createElement('li'); // make chile li element
+
+seattleDivElem.appendChild(seattleUlElem); // append ul to div
+
+//seattleUl.appendChild('li');
+const hours = ['6am: ', '7am: ', '8am: ', '9am: ', '10am: ', '11am: ', '12pm: ', '1pm: ', '2pm: ', '3pm: ', '4pm: ', '5pm: ', '6pm: ', '7pm: '];
+
+function makeHoursSalesList(hours) {
+    const seattleUlElem = document.createElement('ul');
+    for (let i = 0; i < hours.length; i += 1) {
+        const seattleLiElem = document.createElement('li');
+        (hours[i]);
+}
+
+makeHoursSalesList(hours);
+
+
+
+
+
+
+
+/*
+let customers = seattle.assignHourlyCust();
+console.log("customers: " + customers);
 //let cookiesSold = seattle.assignCookiesSold();
 //console.log("cookiesSold: " + cookiesSold);
 let cookiesByHour = seattle.assignCookiesSoldByHour();
 console.log("cookiesbyHour: " + cookiesByHour);
+*/
+
 
 
 

@@ -35,6 +35,7 @@ function randomInRange(min, max) {
     return Math.floor(Math.random() * range) + min;
 }
 
+
 // 1. make sure object properties work X
 // 2. make sure object methods work X
 // 3. make function to calculate cookies sold each hour X
@@ -44,31 +45,33 @@ function randomInRange(min, max) {
 // 7. add 'seattle' as id to div X
 // 8. grab parent element from html X
 // 9. add ul to parent element X
-// 10. add li to ul
+// 10. add li to ul X
 // 11. add hour + cookies sold to each hour
 
 // 8. grab parent element from html
 
-const seattleDivElem = document.getElementById('seattle'); // get parent element
-
-const seattleUlElem = document.createElement('ul'); // make child ul element
-//console.log("seattleUl: " + seattleUl);
-
-const seattleLiElem = document.createElement('li'); // make chile li element
-
-seattleDivElem.appendChild(seattleUlElem); // append ul to div
 
 //seattleUl.appendChild('li');
 const hours = ['6am: ', '7am: ', '8am: ', '9am: ', '10am: ', '11am: ', '12pm: ', '1pm: ', '2pm: ', '3pm: ', '4pm: ', '5pm: ', '6pm: ', '7pm: '];
 
-function makeHoursSalesList(hours) {
-    const seattleUlElem = document.createElement('ul');
-    for (let i = 0; i < hours.length; i += 1) {
-        const seattleLiElem = document.createElement('li');
-        (hours[i]);
+// make li in function
+
+const divElem = document.getElementById('seattle'); // get parent element
+const ulElem = document.createElement('ul'); // make child ul element
+divElem.appendChild(ulElem); // append ul to div
+
+
+// make li in function
+function populateSalesList() {
+    for (let i = 0; i < hours.length; i++) {
+        // make li element based on i
+        const salesLi = document.createElement('li'); // make child li element
+        // append li to ul
+        ulElem.appendChild(salesLi).innerHTML = hours[i];  
+    }
 }
 
-makeHoursSalesList(hours);
+populateSalesList();
 
 
 
@@ -76,14 +79,18 @@ makeHoursSalesList(hours);
 
 
 
-/*
-let customers = seattle.assignHourlyCust();
-console.log("customers: " + customers);
-//let cookiesSold = seattle.assignCookiesSold();
-//console.log("cookiesSold: " + cookiesSold);
-let cookiesByHour = seattle.assignCookiesSoldByHour();
-console.log("cookiesbyHour: " + cookiesByHour);
-*/
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

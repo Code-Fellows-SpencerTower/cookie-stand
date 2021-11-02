@@ -1,22 +1,29 @@
-'use strict';
+//'use strict';
 
-let seattle = {
+const seattle = {
+    location: 'Seattle',
     minCust: 23,
     maxCust: 65,
     avgCookiesSold: 6.3,
-    hourlyCust: 0,
-    hourlyCookiesSold: 0,
+    hourlyCust: this.assignHourlyCust,
+    cookiesSold: this.assignCookiesSold,
+    cookiesSoldByHour: [],
+    hours: ['6am: ', '7am: ', '8am: ', '9am: ', '10am: ', '11am: ', '12pm: ', '1pm: ', '2pm: ', '3pm: ', '4pm: ', '5pm: ' , '6pm: ', '7pm: '],
     assignHourlyCust: function () {
         this.hourlyCust = randomInRange(23, 65);
+        return this.hourlyCust;
     },
-    assignCookiesSoldPerHour: function () {
-        this.hourlyCookiesSold = avgCookiesSold * hourlyCust;
+    // hourlyCust must be initiated first
+    assignCookiesSold: function () {
+        this.cookiesSold = this.avgCookiesSold * this.hourlyCust;
+        return this.cookiesSold;
     },
-    cookiesSoldEachHour: [],
-    locationHours: ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'],
-    totalCookiesSold: 0,
-    assignCookiesSoldEachHour: function () {
-        
+    assignCookiesSoldByHour: function () {
+        let hours = this.hours;
+        for (let i = 0; i < this.hours.length; i += 1) {
+            this.cookiesSoldByHour.push(hours[i] + this.cookiesSold + " cookies");
+        }
+        return this.cookiesSoldByHour;
     }
 
 }
@@ -27,18 +34,71 @@ function randomInRange(min, max) {
     return Math.floor(Math.random() * range) + min;
 }
 
-// calc and store cookies purchases for each hour
-function calculateCookiesSoldPerHour(location) {
-    console.log("location: " + location)
-    let hourlyCustomers = location.assignHourlyCust;
-    console.log(hourlyCustomers);
-    let cookiesSoldPerHour = location.assignCookiesSoldPerHour;
-    console.log(cookiesSoldPerHour);
+// 1. make sure object properties work X
+// 2. make sure object methods work X
+// 3. make function to calculate cookies sold each hour X
+// 4. make array with location hours X
+// 5. make empty array for hours + cookies sold X
+// 6. make function that populates empty array with hour and cookies sold in a string X
+// 7. add 'seattle' as id to div
+// 8. grab parent element from html
+// 9. add ul to parent element
+// 10. add li to ul
+// 11. add hour + cookies sold to each hour
+
+
+//let customers = seattle.assignHourlyCust();
+//console.log("customers: " + customers);
+//let cookiesSold = seattle.assignCookiesSold();
+//console.log("cookiesSold: " + cookiesSold);
+let cookiesByHour = seattle.assignCookiesSoldByHour();
+console.log("cookiesbyHour: " + cookiesByHour);
+
+
+
+
+
+
+
+
+// 6. make function that populates empty array with hour and cookies sold in a string
+
+/*
+let hours = ['6am: ', '7am: ', '8am: ', '9am: ', '10am: ', '11am: ', '12pm: ', '1pm: ', '2pm: ', '3pm: ', '4pm: ', '5pm: ' , '6pm: ', '7pm: '];
+
+let cookiesSold = 5;
+
+let cookiesSoldByHour = [];
+
+function assignCookiesSoldByHour(hours, cookiesSold, cookiesSoldByHour) {
+    console.log("hours.length: "  + hours.length);
+    for (let i = 0; i < hours.length; i += 1) {
+        cookiesSoldByHour.push(hours[i] + cookiesSold);
+        console.log(cookiesSoldByHour);
+    }
+    return cookiesSoldByHour;
 }
 
-let customers = seattle.assignHourlyCust();
-console.log("customers: " + customers);
-calculateCookiesSoldPerHour("seattle");
+let cookiesHours = assignCookiesSoldByHour(hours, cookiesSold, cookiesSoldByHour);
+console.log(cookiesHours);
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -50,6 +110,14 @@ calculateCookiesSoldPerHour("seattle");
 
 
 /*
+// from class demo
+function randomInRange(min, max) {
+    let range = max - min + 1;
+    return Math.floor(Math.random() * range) + min;
+}
+
+
+
 let tokyo = {
     minCust: 3,
     maxCust: 24,

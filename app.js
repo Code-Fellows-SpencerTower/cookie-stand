@@ -3,7 +3,7 @@
 // 1. refactor object literal into single object constructor X
 // 2. make sure object constructor works X
 // 3. make prototype function for random number of cookies per hour X
-// 4. append table to html outside of render() method
+// 4. append table to html outside of render() method X
 // 5. replace lists with table - make function outside of render()
 // 6. append table to html
 // 7. make render() prototype method for table
@@ -12,7 +12,6 @@
 // arrow function?
 
 
-// 1. refactor object literal into single object constructor
 function Stand(location, minCust, maxCust, avgCookieSale) {
     this.location = location;
     this.minCust = minCust;
@@ -22,7 +21,7 @@ function Stand(location, minCust, maxCust, avgCookieSale) {
 }
 
 // generate cookies sold per hour
-Stand.prototype.cookiesSold = function() {
+Stand.prototype.cookiesSold = function () {
     this.cookiesSold = this.avgCookieSale * randomCust(this.minCust, this.maxCust)
     return Math.ceil(this.cookiesSold); // round up
 }
@@ -46,13 +45,34 @@ function randomCust(min, max) {
     return Math.floor(Math.random() * range) + min;
 }
 
-
 const hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 
-const divElem = document.getElementById('seattle'); // get parent element
-const ulElem = document.createElement('ul'); // make child ul element
-divElem.appendChild(ulElem); // append ul to div
 
+
+// get sales div
+const salesDivElem = document.getElementById('sales');
+// make table
+const salesTableElem = document.createElement('table');
+// append table to sales div
+salesDivElem.appendChild(salesTableElem).textContent = 'This worked!'; // append ul to div
+
+// 7. populate table with rows and columns in render() function
+// 1. add header row for 
+// 2. add column
+
+// make header row
+const headerRowElem = document.createElement('tr');
+// append header row to sales table
+salesTableElem.appendChild(headerRowElem).textContent = 'Header Row';
+
+
+for (let i = 0; i <= hours.length; i += 1) {
+    // make header with th
+    const timeSlotElem = document.createElement('th');
+    headerRowElem.appendChild(timeSlotElem).textContent = hours[i];
+}
+
+// make 
 
 
 

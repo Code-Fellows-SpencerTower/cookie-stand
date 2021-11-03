@@ -1,69 +1,89 @@
 'use strict';
 
-const seattleShop = {
-    location: 'Seattle',
-    minCust: 23,
-    maxCust: 65,
-    avgCookiesSold: 6.3,
-    hourlyCust: 0,
-    cookiesSold: 0,
-    cookiesSoldPerHour: [10, 8],
-    
-    // hourlyCust must be initiated first
-    assignCookiesSold: function () {
-        this.cookiesSold = this.avgCookiesSold * randomCust(this.minCust, this.maxCust)
-        return Math.ceil(this.cookiesSold); // round up
-    },
+// 1. render method to create and append a row for each location
+// 1. create row
+// 2. append row
+// 3. populate row
+// 4. 1st cell in row - location name
+        // if i = 0 then populate with location name
+        // else, populate with random
+// 5. populate rest of cells based on 
+
+// store hours
+const hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
+console.log(hours.length)
+
+
+function Stand(location, minCust, maxCust, avgCookieSale) {
+    this.location = location;
+    this.minCust = minCust;
+    this.maxCust = maxCust;
+    this.avgCookieSale = avgCookieSale;
+    this.cookiesSold();
+
+}
+
+// generate cookies sold per hour
+Stand.prototype.cookiesSold = function () {
+    this.cookiesSold = this.avgCookieSale * randomNumInRange(this.minCust, this.maxCust)
+    return Math.ceil(this.cookiesSold); // rounds up
 }
 
 // from class demo
-function randomCust(min, max) {
+function randomNumInRange(min, max) {
     let range = max - min + 1;
     return Math.floor(Math.random() * range) + min;
 }
 
+// test object constructor
+const seattle = new Stand('Seattle', 23, 65, 6.3);
+console.log(seattle.cookiesSold)
 
 
-// 1. make sure object properties work X
-// 2. make sure object methods work X
-// 3. make function to calculate cookies sold each hour X
-// 4. make array with location hours X
-// 5. make empty array for hours + cookies sold X
-// 6. make function that populates empty array with hour and cookies sold in a string
-// 7. add 'seattle' as id to div X
-// 8. grab parent element from html X
-// 9. add ul to parent element X
-// 10. add li to ul X
-// 11. add hour + cookies sold to each hour
+// 
+
+// get sales div
+const salesDivElem = document.getElementById('sales');
+// make table
+const salesTableElem = document.createElement('table');
+// append table to sales div
+salesDivElem.appendChild(salesTableElem);
 
 
-
-const hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
-
-const divElem = document.getElementById('seattle'); // get parent element
-const ulElem = document.createElement('ul'); // make child ul element
-divElem.appendChild(ulElem); // append ul to div
+// make header row
+const headerRowElem = document.createElement('tr');
+salesTableElem.appendChild(headerRowElem);
 
 
 
-function populateSalesList() {
-    for (let i = 0; i < hours.length; i++) {
-        const listText = `${hours[i]}: ${seattleShop.cookiesSoldByHour[i]} cookies`;
-        // make child li element
-        const salesLi = document.createElement('li');
-        // append li to ul
-        ulElem.appendChild(salesLi).textContent = listText;
-    }
+
+Stand.prototype.render = function () {
+
 }
 
-populateSalesList();
-
-
-
-
-// calculate and store average sales per hour for the shop
-// get total sales
-
-for (i = 0; i < hours.length; i += 1) {
-    cookiesShop.
+// 
+// i set to -2 to start with empty cell in header row
+for (let i = -2; i < hours.length; i += 1) {
+    const timeSlotElem = document.createElement('th');
+    headerRowElem.appendChild(timeSlotElem).textContent = hours[i];
 }
+
+
+// add location row to table X
+// add data to location row
+const locationRowElem = document.createElement('tr');
+salesTableElem.appendChild(locationRowElem).textContent = 'Seattle';
+
+const salesRowElem = document.createElement('td');
+locationRowElem.appendChild(salesRowElem);
+
+// test adding a sales number for each time slot for one location
+for (let i = 0; i < hours.length; i += 1) {
+    // make sales data element
+    let salesDataElem = document.createElement('td');
+    let salesFigure = seattle.cookiesSold;
+    locationRowElem.appendChild(salesDataElem).textContent = salesFigure;
+}
+
+
+

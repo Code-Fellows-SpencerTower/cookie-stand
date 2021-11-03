@@ -5,42 +5,97 @@
 // 2. append row
 // 3. populate row
 // 4. 1st cell in row - location name
-        // if i = 0 then populate with location name
-        // else, populate with random
+// if i = 0 then populate with location name
+// else, populate with random
 // 5. populate rest of cells based on 
 
 // store hours
 const hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
-console.log(hours.length)
 
 
-function Stand(location, minCust, maxCust, avgCookieSale) {
+
+function Stand(location, minCust, maxCust, avgSale) {
     this.location = location;
     this.minCust = minCust;
     this.maxCust = maxCust;
-    this.avgCookieSale = avgCookieSale;
-    this.cookiesSold();
+    this.avgSale = avgSale;
+
+    this.hourlySales = [];
+
+    this.genHourlySales();
 
 }
 
-// generate cookies sold per hour
-Stand.prototype.cookiesSold = function () {
-    this.cookiesSold = this.avgCookieSale * randomNumInRange(this.minCust, this.maxCust)
-    return Math.ceil(this.cookiesSold); // rounds up
+// generate cookies sold per hour // extend to fill .hourlySales[]
+Stand.prototype.genHourlySales = function () {
+    // from class 08 demo
+    for (let i = 0; i < hours.length; i += 1) {
+
+        const customerRange = this.maxCust - this.minCust;
+
+        const randomCustCount = Math.ceil(Math.random() * customerRange);
+
+        const adjustedCustCount = randomCustCount + this.minCust;
+
+        const estimatedSales = Math.ceil(adjustedCustCount * this.avgSale);
+
+        this.hourlySales.push(estimatedSales);
+
+
+    }
+
+    console.log(this.hourlySales);
+
+
 }
 
+const seattle = new Stand('Seattle', 23, 65, 6.3);
+const tokyo = new Stand('Tokyo', 3, 24, 1.2);
+const dubai = new Stand('Dubai', 11, 38, 3.7);
+const paris = new Stand('Paris', 20, 38, 2.3);
+const lima = new Stand('Lima', 2, 16, 4.6);
+
+const standLocations = [seattle, tokyo, dubai, paris, lima];
+
+console.log('seattle: ' + seattle.hourlySales);
+console.log('lima: ' + lima.hourlySales);
+
+// iterate through each hour
+// iterate through each location for each hour
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 // from class demo
-function randomNumInRange(min, max) {
+function randomCust(min, max) {
     let range = max - min + 1;
     return Math.floor(Math.random() * range) + min;
 }
+*/
 
+
+
+
+
+
+
+/*
 // test object constructor
 const seattle = new Stand('Seattle', 23, 65, 6.3);
-console.log(seattle.cookiesSold)
+console.log(seattle.hourlySales)
 
 
-// 
+//
 
 // get sales div
 const salesDivElem = document.getElementById('sales');
@@ -61,7 +116,7 @@ Stand.prototype.render = function () {
 
 }
 
-// 
+//
 // i set to -2 to start with empty cell in header row
 for (let i = -2; i < hours.length; i += 1) {
     const timeSlotElem = document.createElement('th');
@@ -81,9 +136,11 @@ locationRowElem.appendChild(salesRowElem);
 for (let i = 0; i < hours.length; i += 1) {
     // make sales data element
     let salesDataElem = document.createElement('td');
-    let salesFigure = seattle.cookiesSold;
+    let salesFigure = seattle.hourlySales;
     locationRowElem.appendChild(salesDataElem).textContent = salesFigure;
 }
 
+
+*/
 
 

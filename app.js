@@ -63,6 +63,33 @@ console.log('lima: ' + lima.hourlySales);
 // iterate through each hour
 // iterate through each location for each hour
 
+const hourlyTotalSales = [];
+
+// from class 08 demo
+// calculate total sales for each time slot and put in hourlyTotalSales array
+for(let i = 0; i < hours.length; i += 1) {
+
+    const timeSlot = hours[i];
+
+    // total for each time slot
+    const salesTotal = 0;
+
+    for(let j = 0; i < standLocations.length; i += 1) {
+
+        const currentStand = standLocations[j];
+
+        const salesCurrentStand = currentStand.hourlySales[i];
+
+        // tallys total sales for each timeslot
+        salesTotal += salesCurrentStand;
+    } 
+
+    // breaks out of inner loop and pushes salesTotal to hourlyTotalSales
+    hourlyTotalSales.push(salesTotal);
+}
+
+// do same as above for location totals
+const locationTotals = [];
 
 
 

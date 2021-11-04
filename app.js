@@ -29,18 +29,13 @@ function Stand(location, minCust, maxCust, avgSale) {
 
 // generate cookies sold per hour // extend to fill .hourlySales[]
 Stand.prototype.genHourlySales = function () {
-    // from class 08 demo
+
     for (let i = 0; i < hours.length; i += 1) {
 
         const customers = randomCust(this.minCust, this.maxCust);
-
         const estSales = Math.ceil(customers * this.avgSale);
-
         this.hourlySales.push(estSales);
     }
-
-    console.log(this.hourlySales);
-
 
 }
 
@@ -71,61 +66,73 @@ function randomCust(min, max) {
 // Stand.prototype.render = function()
 
 // get sales div
+// grab div
 const salesDivElem = document.getElementById('sales');
-// make table
+// create table
 const salesTableElem = document.createElement('table');
-// append table to sales div
+// append table
 salesDivElem.appendChild(salesTableElem);
 
+function headerRow() {
 
-// make header row
-const headerRowElem = document.createElement('tr');
-salesTableElem.appendChild(headerRowElem);
+    // create header row
+    const headerRowElem = document.createElement('tr');
+    // append header row
+    salesTableElem.appendChild(headerRowElem);
 
-// add blank cell to header row
-const blankHeaderCell = document.createElement('td');
-headerRowElem.appendChild(blankHeaderCell);
+    // append blank cell
+    const blankHeaderCell = document.createElement('td');
+    headerRowElem.appendChild(blankHeaderCell);
 
-// i set to -2 to start with empty cell in header row
-for (let i = 0; i < hours.length; i += 1) {
-    const headerElem = document.createElement('th');
-    headerRowElem.appendChild(headerElem).textContent = hours[i];
+    // append hour headers
+    for (let i = 0; i < hours.length; i += 1) {
+        // create header elem
+        const headerElem = document.createElement('th');
+        // append header elem
+        headerRowElem.appendChild(headerElem).textContent = hours[i];
+    }
+
+    // append 'Totals' header to end of row
+    const totalHeaderElem = document.createElement('th');
+    headerRowElem.appendChild(totalHeaderElem);
+    totalHeaderElem.textContent = 'Totals';
+
 }
 
-// add location row to table X
-// add data to location row
+Stand.prototype.render = function () {
 
-for (let i = 0; i < standLocations.length; i += 1) {
-
+    // create row
     const standRowElem = document.createElement('tr');
-    //const standLoc = standLocations[i].location;
+    // append row
     salesTableElem.appendChild(standRowElem);
 
+    /*
     // get stand object
-    const standObject = standLocations[i];
+    const standObject = this.location;
     // get stand location param
     const standLocationParam = standObject.location;
     console.log(standLocationParam); // test
+    */
 
+    // create header
     const standHeader = document.createElement('th');
+    // append header
     standRowElem.appendChild(standHeader)
-    // add location param to header elem
-    standHeader.textContent = standLocationParam;
+    // append location to header elem
+    standHeader.textContent = this.location;
 
-    // add sales data to each row
-    for (let j = 0; j < hours.length; j += 1) {
+    // append sales data to each row
+    for (let i = 0; i < hours.length; i += 1) {
 
-
+        // create data cell
         const salesDataElem = document.createElement('td');
 
-        // get sales for that hour
-        const salesDataForHour = standObject.hourlySales[j];
+        // grab sales data for current hour
+        const salesDataForHour = this.hourlySales[i];
 
-        //console.log(standName.hourlySales.length);
-
-        //console.log('hourSales: ' + salesDataForHour);
-        // append data
+        // append data cell
         standRowElem.appendChild(salesDataElem);
+        // fill data cell
         salesDataElem.textContent = salesDataForHour;
 
     }
@@ -139,6 +146,7 @@ function footerRow() {
 
     // Append to table row
 
+    const salesTableElem = document.getElementById('sales');
     const tableFooter = document.createElement('tr');
     salesTableElem.appendChild(tableFooter);
 
@@ -157,26 +165,20 @@ function footerRow() {
         tdCell.textContent = '?';
     }
 
-    // need one cell for alltotal
+    // need one cell for daily total
     const lastTotalCell = document.createElement('td');
     tableFooter.appendChild(lastTotalCell);
     lastTotalCell.textContent = 'TBD';
 
 }
 
+headerRow();
+seattle.render();
+tokyo.render();
+dubai.render();
+
 footerRow();
 
-
-
-/*
-// test adding a sales number for each time slot for one location
-for (let i = 0; i < hours.length; i += 1) {
-    // make sales data element
-    let salesDataElem = document.createElement('td');
-    let salesFigure = seattle.hourlySales;
-    locationRowElem.appendChild(salesDataElem).textContent = salesFigure;
-}
-*/
 
 
 

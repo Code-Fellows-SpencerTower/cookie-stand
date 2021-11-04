@@ -22,8 +22,11 @@ function Stand(location, minCust, maxCust, avgSale) {
     this.avgSale = avgSale;
 
     this.hourlySales = [];
+    this.dailyTotal = 0;
+    this.hourlyTotal = 0;
 
     this.genHourlySales();
+    this.genDailyTotal();
 
 }
 
@@ -39,6 +42,38 @@ Stand.prototype.genHourlySales = function () {
 
 }
 
+Stand.prototype.genDailyTotal = function () {
+    let total = 0;
+    for (let i = 0; i < this.hourlySales.length; i += 1) {
+
+        // grab sale, add to total
+        total += this.hourlySales[i];
+        // add to total
+        // ?????????????
+        console.log('RUNNING TOTAL: ' + total);
+
+    }
+    this.dailyTotal = total;
+}
+
+/*
+// add up daily sales // append to dailyTotal
+Stand.prototype.genDailyTotal = function () {
+
+    for (let i = 0; i < this.hourlySales.length; i +=1 ) {
+
+        // grab sale
+        const sale = this.hourlySales[i];
+        // add to total
+        runningTotal += sale;
+    }
+
+    this.hourlyTotal = runningTotal; 
+}
+*/
+
+
+
 const seattle = new Stand('Seattle', 23, 65, 6.3);
 const tokyo = new Stand('Tokyo', 3, 24, 1.2);
 const dubai = new Stand('Dubai', 11, 38, 3.7);
@@ -46,6 +81,12 @@ const paris = new Stand('Paris', 20, 38, 2.3);
 const lima = new Stand('Lima', 2, 16, 4.6);
 
 const standLocations = [seattle, tokyo, dubai, paris, lima];
+
+//seattle.genDailyTotal();
+console.log('SEATTLE DAILY TOTAL: ' + seattle.dailyTotal);
+
+
+
 
 console.log('seattle: ' + seattle.hourlySales);
 console.log('lima: ' + lima.hourlySales);
@@ -145,8 +186,6 @@ function footerRow() {
     // Add up hourly total
 
     // Append to table row
-
-    const salesTableElem = document.getElementById('sales');
     const tableFooter = document.createElement('tr');
     salesTableElem.appendChild(tableFooter);
 

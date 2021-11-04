@@ -68,6 +68,7 @@ function randomCust(min, max) {
 }
 
 
+// Stand.prototype.render = function()
 
 // get sales div
 const salesDivElem = document.getElementById('sales');
@@ -145,7 +146,7 @@ for (let i = 0; i < hours.length; i += 1) {
 
 
 
-// ********* ESTIMATE TOTAL (FROM CLASS DEMO) ***********
+// ********* ESTIMATE TOTAL ***********
 /*
 for(let i = 0; i < hours.length; i += 1) {
 

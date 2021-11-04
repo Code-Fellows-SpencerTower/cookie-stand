@@ -73,20 +73,20 @@ function randomCust(min, max) {
 // get sales div
 const salesDivElem = document.getElementById('sales');
 // make table
-const tableElem = document.createElement('table');
+const salesTableElem = document.createElement('table');
 // append table to sales div
-salesDivElem.appendChild(tableElem);
+salesDivElem.appendChild(salesTableElem);
 
 
 // make header row
 const headerRowElem = document.createElement('tr');
-tableElem.appendChild(headerRowElem);
+salesTableElem.appendChild(headerRowElem);
 
-
+/*
 // i set to -2 to start with empty cell in header row
 for (let i = -2; i < hours.length; i += 1) {
-    const timeHeaderElem = document.createElement('th');
-    headerRowElem.appendChild(timeHeaderElem).textContent = hours[i];
+    const headerElem = document.createElement('th');
+    headerRowElem.appendChild(headerElem).textContent = hours[i];
 }
 
 // add location row to table X
@@ -96,7 +96,7 @@ for (let i = 0; i < standLocations.length; i += 1) {
 
     const standRowElem = document.createElement('tr');
     //const standLoc = standLocations[i].location;
-    tableElem.appendChild(standRowElem);
+    salesTableElem.appendChild(standRowElem);
 
     // get stand object
     const standObject = standLocations[i];
@@ -107,14 +107,16 @@ for (let i = 0; i < standLocations.length; i += 1) {
     // add sales data to each row
     for (let j = 0; j < hours.length; j += 1) {
 
+        // Move this up
         if (j === 0) {
             // make header for stand location
             const standHeader = document.createElement('th');
             const standHeaderContent = standLocationParam;
-            standRowElem.appendChild(standHeader).textContent = standHeaderContent;
+            standRowElem.appendChild(standHeader)
+            standHeader.textContent = standHeaderContent;
             console.log
         }
-        console.log('CURRENT HOUR: ' + j);
+        console.log('CURRENT HOUR INDEX: ' + j);
 
         const salesDataElem = document.createElement('td');
 
@@ -132,6 +134,43 @@ for (let i = 0; i < standLocations.length; i += 1) {
     const salesRowElem = document.createElement('td');
     locationRowElem.appendChild(salesRowElem);
 }
+*/
+
+// make table footer row
+
+function footerRow() {
+    // Add up hourly total
+
+    // Append to table row
+
+    const tableFooter = document.createElement('tr');
+    salesTableElem.appendChild(tableFooter);
+
+    // need one cell for location
+
+    const thCell = document.createElement('th');
+    tableFooter.appendChild(thCell);
+    thCell.textContent = 'Totals';
+
+
+    // need cell for every hour (loop) for as many hours
+
+    for (let i = 0; i < hours.length; i+=1) {
+        const tdCell = document.createElement('td');
+        tableFooter.appendChild(tdCell);
+        tdCell.textContent = '?';
+    }
+
+    // need one cell for alltotal
+    const lastTotalCell = document.createElement('td');
+    tableFooter.appendChild(lastTotalCell);
+    lastTotalCell.textContent = 'TBD';
+
+}
+
+footerRow();
+
+
 
 /*
 // test adding a sales number for each time slot for one location

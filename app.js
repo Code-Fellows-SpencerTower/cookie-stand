@@ -82,9 +82,12 @@ salesDivElem.appendChild(salesTableElem);
 const headerRowElem = document.createElement('tr');
 salesTableElem.appendChild(headerRowElem);
 
-/*
+// add blank cell to header row
+const blankHeaderCell = document.createElement('td');
+headerRowElem.appendChild(blankHeaderCell);
+
 // i set to -2 to start with empty cell in header row
-for (let i = -2; i < hours.length; i += 1) {
+for (let i = 0; i < hours.length; i += 1) {
     const headerElem = document.createElement('th');
     headerRowElem.appendChild(headerElem).textContent = hours[i];
 }
@@ -102,39 +105,32 @@ for (let i = 0; i < standLocations.length; i += 1) {
     const standObject = standLocations[i];
     // get stand location param
     const standLocationParam = standObject.location;
-    console.log(standLocationParam);
+    console.log(standLocationParam); // test
+
+    const standHeader = document.createElement('th');
+    standRowElem.appendChild(standHeader)
+    // add location param to header elem
+    standHeader.textContent = standLocationParam;
 
     // add sales data to each row
     for (let j = 0; j < hours.length; j += 1) {
 
-        // Move this up
-        if (j === 0) {
-            // make header for stand location
-            const standHeader = document.createElement('th');
-            const standHeaderContent = standLocationParam;
-            standRowElem.appendChild(standHeader)
-            standHeader.textContent = standHeaderContent;
-            console.log
-        }
-        console.log('CURRENT HOUR INDEX: ' + j);
 
         const salesDataElem = document.createElement('td');
 
         // get sales for that hour
-        //const salesDataForHour = .hourlySales[j];
+        const salesDataForHour = standObject.hourlySales[j];
 
-        console.log(standName.hourlySales.length);
+        //console.log(standName.hourlySales.length);
 
-        console.log('hourSales: ' + salesDataForHour);
-        // append sales to row for that hour
-        standRowElem.appendChild(salesCellElem).textContent = salesDataForHour;
+        //console.log('hourSales: ' + salesDataForHour);
+        // append data
+        standRowElem.appendChild(salesDataElem);
+        salesDataElem.textContent = salesDataForHour;
 
     }
 
-    const salesRowElem = document.createElement('td');
-    locationRowElem.appendChild(salesRowElem);
 }
-*/
 
 // make table footer row
 
@@ -155,7 +151,7 @@ function footerRow() {
 
     // need cell for every hour (loop) for as many hours
 
-    for (let i = 0; i < hours.length; i+=1) {
+    for (let i = 0; i < hours.length; i += 1) {
         const tdCell = document.createElement('td');
         tableFooter.appendChild(tdCell);
         tdCell.textContent = '?';

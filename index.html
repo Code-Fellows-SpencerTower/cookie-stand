@@ -7,7 +7,6 @@
     </head>
     <body>
         <header></header>
-
         <main>
             <form id="stand-form">
                 <fieldset>
@@ -19,26 +18,26 @@
                 <fieldset>
                     <legend>
                     <label for="min-customers">Minimum Customers/Hr: </label>   
-                    <input type="text" id="min-customers" name="minCustomers">
+                    <input type="number" id="min-customers" name="minCustomers">
                     </legend>
                 </fieldset>
                 <fieldset>
                     <legend>
                     <label for="max-customers">Maximum Customers/Hr: </label>   
-                    <input type="text" id="max-customers" name="maxCustomers">
+                    <input type="number" id="max-customers" name="maxCustomers">
                     </legend>
                 </fieldset>
                 <fieldset>
                     <legend>
                     <label for="avg-cookie-sale">Avgerage Cookie Sale: </label>
-                    <input type="text" id="avg-cookie-sale" name="avgCookieSale">
+                    <input type="number" id="avg-cookie-sale" name="avgCookieSale">
                     </legend>
                 </fieldset>
+                <button type="button">Submit</button>
             </form>
-
         </main>
-
         <footer></footer> 
+        <script src="app.js"></script>  
     </body>
 
 </html>

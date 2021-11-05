@@ -1,7 +1,20 @@
 'use strict';
 
+// FORM
+
+function submitBtnClick(event) {
+    console.log(event.target);
+    alert('submitBtnClick Worked!');
+}
+// find button
+const submitBtn = document.getElementById('submit-btn');
+
+// set event type and function
+submitBtn.addEventListener('click', buttonClick);
 
 
+
+// TABLE
 
 const hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 

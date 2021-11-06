@@ -1,7 +1,7 @@
 'use strict';
 
 // FORM
-
+/*
 function submitBtnClick(event) {
     console.log(event.target);
     alert('submitBtnClick Worked!');
@@ -11,7 +11,7 @@ const submitBtn = document.getElementById('submit-btn');
 
 // set event type and function
 submitBtn.addEventListener('click', buttonClick);
-
+*/
 
 
 // TABLE
@@ -145,32 +145,42 @@ Stand.prototype.render = function () {
 }
 
 
-
+// add footer row
 function footerRow() {
     // Add up hourly total
 
-    // Append to table row
-    const tableFooter = document.createElement('tr');
-    salesTableElem.appendChild(tableFooter);
+    // create total row
+    const totalRowElem = document.createElement('tr');
+    // Append total row to table
+    salesTableElem.appendChild(totalRowElem);
 
     // need one cell for location
 
+    // create 'Total' cell at beginning of row
     const thCell = document.createElement('th');
-    tableFooter.appendChild(thCell);
+    // append cell to total row
+    totalRowElem.appendChild(thCell);
+    // set cell content to 'Totals'
     thCell.textContent = 'Totals';
    
+        // iterate through hours, add up total sales of all stores for each hour
         for (let i = 0; i < hours.length; i += 1) {
+            // create sales data cell
             const tdCell = document.createElement('td');
-            tableFooter.appendChild(tdCell);
+            // append sales data cell to row
+            totalRowElem.appendChild(tdCell);
+            // calculate hourly totals, populate hourlyTotals array
+            genHourlyTotal();
 
-            // call function
-
-            tdCell.textContent = '?';
+            // get total sales for current hour
+            let sales = hourlyTotalSales[i];
+            // set cell content to total sales
+            tdCell.textContent = sales;
         }
 
     // need one cell for daily total
     const lastTotalCell = document.createElement('td');
-    tableFooter.appendChild(lastTotalCell);
+    totalRowElem.appendChild(lastTotalCell);
     lastTotalCell.textContent = 'TBD';
 
 }
@@ -196,7 +206,6 @@ for(let i = 0; i < hours.length; i += 1) {
         const currentStand = standLocations[j];
         let sale = currentStand.hourlySales[i];
         salesTotal += sale;
-
     }
 
     // breaks out of inner loop and pushes salesTotal to hourlyTotalSales

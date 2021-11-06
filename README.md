@@ -8,7 +8,7 @@ Object Constructor and Tables Practice:
 - [x] total row
   - [x] calculate total of all locations per hour
   - [x] append total per hour to Totals row
-- [ ] grand total cell
-  - [ ] calculate total of all hours for all locations
-  - [ ] calculate daily location total for all locations
+- [x] grand total cell
+  - [x] calculate total of all hours for all locations
+  - [x] calculate daily location total for all locations
   - [ ] append grand total to Totals row

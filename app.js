@@ -34,12 +34,13 @@ function Stand(location, minCust, maxCust, avgSale) {
 
 }
 
-
+// calculate sale for each hour
 Stand.prototype.genHourlySales = function () {
 
     for (let i = 0; i < hours.length; i += 1) {
-
+        // get random number of customers
         const customers = randomCust(this.minCust, this.maxCust);
+        // calculate sale for hour based on customers and average sale
         const estSales = Math.ceil(customers * this.avgSale);
         this.hourlySales.push(estSales);
     }
@@ -56,6 +57,7 @@ Stand.prototype.genDailyTotal = function () {
     this.dailyTotal = total;
 }
 
+// render sales table
 Stand.prototype.render = function () {
 
     // create row
@@ -93,7 +95,6 @@ Stand.prototype.render = function () {
 
 
 
-
 const seattle = new Stand('Seattle', 23, 65, 6.3);
 const tokyo = new Stand('Tokyo', 3, 24, 1.2);
 const dubai = new Stand('Dubai', 11, 38, 3.7);
@@ -101,25 +102,24 @@ const paris = new Stand('Paris', 20, 38, 2.3);
 const lima = new Stand('Lima', 2, 16, 4.6);
 
 const standLocations = [seattle, tokyo, dubai, paris, lima];
-
 const hourlyTotalSales = [];
 
-//from class demo
+// calculate random number of customers
 function randomCust(min, max) {
+    //from class demo
     let range = max - min + 1;
     return Math.floor(Math.random() * range) + min;
 }
 
-// grab div
+// grab sales div
 const salesDivElem = document.getElementById('sales');
-// create table
+// create sales table
 const salesTableElem = document.createElement('table');
 // append table
 salesDivElem.appendChild(salesTableElem);
 
 // add header row
 function genHeaderRow() {
-
     // create header row
     const headerRowElem = document.createElement('tr');
     // append header row
@@ -175,23 +175,13 @@ function genFooterRow() {
 
     // get grand total
     const grandTotal = genGrandTotal();
-    // create cell for grand total
+    // create grand total cell
     const grandTotalCell = document.createElement('td');
+    // append grand total cell
     totalRowElem.appendChild(grandTotalCell);
+    // add grand total data to cell
     grandTotalCell.textContent = grandTotal;
-
-    
-
 }
-
-
-genHeaderRow();
-seattle.render();
-tokyo.render();
-paris.render();
-dubai.render();
-lima.render();
-genFooterRow();
 
 // calculate total sales of all locations per hour
 function genHourlyTotalSales() {
@@ -223,16 +213,16 @@ function genGrandTotal() {
         // calculate grand total
         grandTotal += standDailytotal;
     }
-
     return grandTotal;
 }
 
+genHeaderRow();
+seattle.render();
+tokyo.render();
+paris.render();
+dubai.render();
+lima.render();
+genFooterRow();
 
-    // add totals for each location
-    // calculate all hourly totals
 
-
-
-//const tdFooterElem = document.createElement('td');
-//salesTableElem.appendChild(tdFooterElem);
 

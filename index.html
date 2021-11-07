@@ -1,43 +1,81 @@
 <!DOCTYPE html>
 
 <html lang="en">
-    
-    <head>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <header></header>
-        <main>
-            <form id="stand-form">
-                <fieldset>
-                    <legend>
-                    <label for="location">Location: </label>   
-                    <input type="text" id="location" name="location">
-                    </legend>
-                </fieldset>
-                <fieldset>
-                    <legend>
-                    <label for="min-customers">Minimum Customers/Hr: </label>   
-                    <input type="number" id="min-customers" name="minCustomers">
-                    </legend>
-                </fieldset>
-                <fieldset>
-                    <legend>
-                    <label for="max-customers">Maximum Customers/Hr: </label>   
-                    <input type="number" id="max-customers" name="maxCustomers">
-                    </legend>
-                </fieldset>
-                <fieldset>
-                    <legend>
-                    <label for="avg-cookie-sale">Avgerage Cookie Sale: </label>
-                    <input type="number" id="avg-cookie-sale" name="avgCookieSale">
-                    </legend>
-                </fieldset>
-                <button type="button" id="submit-btn">Submit</button>
-            </form>
-        </main>
-        <footer></footer> 
-        <script src="app.js"></script>  
-    </body>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <title>Pat's Salmon Cookies</title>
+</head>
+
+<body>
+    <header></header>
+    <main>
+        <h1>Welcome to Pat's Salmon Cookies!</h1>
+        <img src="img/salmon.png" alt="salmon-img" id="salmon-img">
+        <a href="sales.html" class="page-links" #id="sales-link">Sales Data!</a>
+        <div class="location-parent-div">
+            <div class="location-div">
+                <h3 class="location-headers">Seattle</h3>
+                <address>
+                    <p>3170 Rocket Drive</p>
+                    <p>Seattle, WA, 98155</p>
+                    <p>Phone: 612-964-0754</p>
+                    <p>Hours: 6am-7pm Daily</p>
+                </address>
+            </div>
+            <div class="location-div">
+                <h3 class="location-headers">Tokyo</h3>
+                <address>
+                    <p>218-1175, Marunouchi</p>
+                    <p>Chiyoda, Tokyo, 100-6720</p>
+
+                    <p>Phone: +8164-033-2218</p>
+                    <p>Hours: 6am-7pm Daily</p>
+                </address>
+            </div>
+            <div class="location-div">
+                <h3 class="location-headers">Paris</h3>
+                <address>
+                    <p>143 rue Nationale</p>
+                    <p>Paris, Île-de-France, 75006</p>
+
+                    <p>Phone: 01.17.38.40053</p>
+                    <p>Hours: 6am-7pm Daily</p>
+                </address>
+            </div>
+            <div class="location-div">
+                <h3 class="location-headers">Dubai</h3>
+                <address>
+                    <p>Box No. 60895</p>
+                    <p>Dubai, UAE, 60884</p>
+
+                    <p>Phone: 3550634</p>
+                    <p>Hours: 6am-7pm Daily</p>
+                </address>
+            </div>
+            <div class="location-div">
+                <h3 class="location-headers">Lima</h3>
+                <address>
+                    <p>Av. Prolog Perú 4655</p>
+                    <p>Lima, Peru</p>
+
+                    <p>Phone: 1 5724079</p>
+                    <p>Hours: 6am-7pm Daily</p>
+                </address>
+            </div>
+        </div>
+    </main>
+    <div id="bottom-border"></div>
+    <footer>
+        <address id="contact-info">
+            <p>Pat Jenkins</p>
+            <a href=mailto:info@patssalmoncookies.com id="email">info@patssalmoncookies.com</a>
+            <p>3106 University Street</p>
+            <p>Seattle, WA, 98121</p>
+            <p>Phone: 206-443-9495</p>
+        </address>
+    </footer>
+    <script src="app.js"></script>
+</body>
 
 </html>

@@ -11,4 +11,20 @@ Object Constructor and Tables Practice:
 - [x] grand total cell
   - [x] calculate total of all hours for all locations
   - [x] calculate daily location total for all locations
-  - [ ] append grand total to Totals row
+  - [x] append grand total to Totals row
+  - [ ] center grand total cell
+
+Index.html
+
+- [x] import font to CSS
+- [ ] basic html stucture
+  - [ ] hyperlinks
+  - [ ] images
+  - [ ] locations
+    - [ ] hours
+    - [ ] addresses
+    - [ ] contact info
+  - [ ] footer
+
+- [ ] CSS styles
+- 

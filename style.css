@@ -88,3 +88,11 @@ footer {
 address {
     font-style: normal;
 }
+
+form {
+    margin-top: 50px;
+}
+
+fieldset {
+    margin: 20px;
+}

@@ -93,7 +93,12 @@ Stand.prototype.render = function () {
     thTotal.textContent = this.dailyTotal;
 }
 
-
+// calculate random number of customers
+function randomCust(min, max) {
+    //from class demo
+    let range = max - min + 1;
+    return Math.floor(Math.random() * range) + min;
+}
 
 const seattle = new Stand('Seattle', 23, 65, 6.3);
 const tokyo = new Stand('Tokyo', 3, 24, 1.2);
@@ -104,15 +109,9 @@ const lima = new Stand('Lima', 2, 16, 4.6);
 const standLocations = [seattle, tokyo, dubai, paris, lima];
 const hourlyTotalSales = [];
 
-// calculate random number of customers
-function randomCust(min, max) {
-    //from class demo
-    let range = max - min + 1;
-    return Math.floor(Math.random() * range) + min;
-}
 
 // grab sales div
-const salesDivElem = document.getElementById('sales');
+const salesDivElem = document.getElementById('sales-table');
 // create sales table
 const salesTableElem = document.createElement('table');
 // append table

@@ -28,4 +28,13 @@ Index.html
 
 - [ ] CSS styles
 - [ ] format table
-- 
+
+Form
+
+- [ ] add form
+- [ ] event handler to create new instance of cookie stand
+- [ ] include constructor properties in form
+- [ ] totals update to reflect new store
+- [ ] refactor code that appears 3 times or more
+- [ ] validate html via html5 validator
+- [ ] follow single-responsibility for functions

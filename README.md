@@ -17,14 +17,15 @@ Object Constructor and Tables Practice:
 Index.html
 
 - [x] import font to CSS
-- [ ] basic html stucture
-  - [ ] hyperlinks
-  - [ ] images
-  - [ ] locations
-    - [ ] hours
-    - [ ] addresses
-    - [ ] contact info
-  - [ ] footer
+- [x] basic html stucture
+  - [x] hyperlinks
+  - [x] locations
+    - [x] hours
+    - [x] addresses
+    - [x] contact info
+  - [x] footer
+- [ ] add 7 images
 
 - [ ] CSS styles
+- [ ] format table
 - 

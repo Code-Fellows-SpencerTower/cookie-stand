@@ -1,20 +1,44 @@
 'use strict';
 
-// FORM
-/*
-function submitBtnClick(event) {
-    console.log(event.target);
-    alert('submitBtnClick Worked!');
+// ******** FORM ********
+
+const submitBtn = document.getElementById('submit-btn').addEventListener('click', getFormInput);
+
+// get location from form
+function getFormInput() {
+    const locationInput = document.getElementById('locationInput').value;
+
+    const minCustInput = document.getElementById('minCustInput').value;
+
+    const maxCustInput = document.getElementById('maxCustInput').value;
+
+    const avgSaleInput = document.getElementById('avgSaleInput').value;
+
+    addInputToTable(locationInput, minCustInput, maxCustInput, avgSaleInput);
 }
-// find button
-const submitBtn = document.getElementById('submit-btn');
 
-// set event type and function
-submitBtn.addEventListener('click', buttonClick);
-*/
+function addInputToTable(location, minCust, maxCust, avgSale) {
+    const newStandLocation = new Stand(location, minCust, maxCust, avgSale);
+    alert('newyork.location: ' + newStandLocation.location);
+    standLocations.push(newStandLocation);
+    alert('stand locations: ' + standLocations[5].location);
+    console.log('stand hourly sales: ' + newStandLocation.hourlySales);
+
+    // grab footer row
+    const totalRow = document.getElementById('total-row');
+
+    // remove footer row
+    totalRow.remove();
+
+    // append new store row
+    newStandLocation.render();
+
+    // regenerate footer row with new totals
+    genFooterRow();
+}
 
 
-// TABLE
+// ******** TABLE ********
 
 const hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 
@@ -28,7 +52,6 @@ function Stand(location, minCust, maxCust, avgSale) {
     this.dailyTotal = 0;
     this.hourlyTotal = 0;
     this.allLocHourlyTotal = 0;
-
     this.genHourlySales();
     this.genDailyTotal();
 
@@ -53,6 +76,8 @@ Stand.prototype.genDailyTotal = function () {
     for (let i = 0; i < this.hourlySales.length; i += 1) {
         // grab sale, add to total
         total += this.hourlySales[i];
+        //////REMOVE///////
+        console.log('DAILY TOTAL: ' + total);
     }
     this.dailyTotal = total;
 }
@@ -65,12 +90,12 @@ Stand.prototype.render = function () {
     // append row
     salesTableElem.appendChild(standRowElem);
 
-    // create header
-    const standHeader = document.createElement('th');
+    // create cell for location name
+    const locationElem = document.createElement('td');
     // append header
-    standRowElem.appendChild(standHeader)
+    standRowElem.appendChild(locationElem)
     // append location to header elem
-    standHeader.textContent = this.location;
+    locationElem.textContent = this.location;
 
     // append sales data to each row
     for (let i = 0; i < hours.length; i += 1) {
@@ -87,11 +112,12 @@ Stand.prototype.render = function () {
         salesDataElem.textContent = salesDataForHour;
 
     }
-    // final cell add total
-    const thTotal = document.createElement('th');
+    // final cell in row
+    const thTotal = document.createElement('td');
     standRowElem.appendChild(thTotal);
     thTotal.textContent = this.dailyTotal;
 }
+
 
 // calculate random number of customers
 function randomCust(min, max) {
@@ -135,18 +161,23 @@ function genHeaderRow() {
     }
 
     // append 'Daily Location Total' header to end of row
+    genDailyLocationTotalHeader(headerRowElem);
+}
+
+// create and append 'Daily Location Total' header
+function genDailyLocationTotalHeader(headerRowElem) {
     const totalHeaderElem = document.createElement('th');
     headerRowElem.appendChild(totalHeaderElem);
     totalHeaderElem.textContent = 'Daily Location Total';
-
 }
 
 // add footer row with sales totals per hour
 function genFooterRow() {
-    // Add up hourly total
-
     // create total row
     const totalRowElem = document.createElement('tr');
+
+    // set id for table row
+    totalRowElem.setAttribute('id', 'total-row');
     // Append total row to table
     salesTableElem.appendChild(totalRowElem);
 
@@ -190,7 +221,6 @@ function genHourlyTotalSales() {
         let salesTotal = 0;
 
         for (let j = 0; j < standLocations.length; j += 1) {
-
             const currentStand = standLocations[j];
             let sale = currentStand.hourlySales[i];
             salesTotal += sale;
@@ -222,6 +252,3 @@ paris.render();
 dubai.render();
 lima.render();
 genFooterRow();
-
-
-

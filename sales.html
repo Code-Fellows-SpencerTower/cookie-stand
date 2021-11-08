@@ -13,34 +13,34 @@
     </header>
     <main>
         <div id="sales-table"></div>
-        <form id="sales-form">
+        <form id="sales-form" name="location">
             <fieldset>
                 <legend>
-                    <label for="location">Location: </label>
-                    <input type="text" id="location" name="location">
+                    <label for="location-input">Location: </label>
+                    <input type="text" id="locationInput" name="location-input" value="">
                 </legend>
             </fieldset>
             <fieldset>
                 <legend>
                     <label for="min-customers">Minimum Customers/Hr: </label>
-                    <input type="number" id="min-customers" name="minCustomers">
+                    <input type="number" id="minCustInput" name="min-customers" min="0" step=".1">
                 </legend>
             </fieldset>
             <fieldset>
                 <legend>
                     <label for="max-customers">Maximum Customers/Hr: </label>
-                    <input type="number" id="max-customers" name="maxCustomers">
+                    <input type="number" id="maxCustInput" name="max-customers" min="0" step=".1">
                 </legend>
             </fieldset>
             <fieldset>
                 <legend>
-                    <label for="avg-cookie-sale">Avgerage Cookie Sale: </label>
-                    <input type="number" id="avg-cookie-sale" name="avgCookieSale">
+                    <label for="avg-sale">Avgerage Cookie Sale: </label>
+                    <input type="number" id="avgSaleInput" name="avg-sale" min="0" step=".1">
                 </legend>
             </fieldset>
-            <button type="button" id="submit-btn">Submit</button>
+            <input type="button" id="submit-btn" value="Submit"></input>
         </form>
-        <a href="index.html" class="page-links">Home Page</a>
+        <a href="index.html" class="page-links">Home Page</a> 
     </main>
     <footer></footer>
     <script src="app.js"></script>

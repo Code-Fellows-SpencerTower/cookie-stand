@@ -31,9 +31,10 @@ Index.html
 
 Form
 
-- [ ] add form
-- [ ] event handler to create new instance of cookie stand
-- [ ] include constructor properties in form
+- [x] add form
+- [x] event handler to create new instance of cookie stand
+- [x] include constructor properties in form
+- [ ] insert new store row before total row
 - [ ] totals update to reflect new store
 - [ ] refactor code that appears 3 times or more
 - [ ] validate html via html5 validator

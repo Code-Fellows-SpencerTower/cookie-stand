@@ -1,3 +1,98 @@
-table {
-    border-style: solid black;
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+/* font-family: 'Righteous', cursive; */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+/* font-family: 'Roboto', sans-serif; */
+
+h1 {
+    color: salmon;    
+    font-family: 'Righteous', cursive;
+    text-align: center;
+    font-size: 55px;
+    padding-bottom: 40px;
+    border-bottom: lightgrey solid;
+    border-width: thin;
+    margin-bottom: 80px;
+}
+
+body {
+    background-color: snow;
+}
+
+#salmon-img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 60px;
+}
+
+.location-parent-div {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+.location-parent-div p {
+    text-align: center;
+    margin: 8px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+}
+
+.location-headers {
+    font-family: 'Righteous', cursive;
+    color: salmon;
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.page-links {
+    margin-top: 50px;
+    display: block;
+    text-align: center;
+    font-family: 'Righteous', cursive;
+    color: sandybrown;
+    font-size: 23px;
+}
+
+.location-div {
+    width: 200px;
+}
+
+footer {
+    margin-top: 50px;
+    text-align: center;
+    border-top: lightgrey solid;
+    border-width: thin;
+    padding: 10px;
+    font-family: 'Roboto', sans-serif;
+}
+
+#contact-info {
+    padding-top: 40px;
+    color: rgb(109, 109, 109);
+    font-size: 14px;
+
+}
+
+#contact-info p{
+    margin: 6px;
+}
+
+#email {
+    color: rgb(109, 109, 109);
+    font-size: 14px;
+}
+
+address {
+    font-style: normal;
+}
+
+form {
+    margin-top: 50px;
+}
+
+fieldset {
+    margin: 20px;
 }

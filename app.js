@@ -8,11 +8,11 @@ const submitBtn = document.getElementById('submit-btn').addEventListener('click'
 function getFormInput() {
     const locationInput = document.getElementById('locationInput').value;
 
-    const minCustInput = document.getElementById('minCustInput').value;
+    const minCustInput = parseInt(document.getElementById('minCustInput').value);
 
-    const maxCustInput = document.getElementById('maxCustInput').value;
+    const maxCustInput = parseInt(document.getElementById('maxCustInput').value);
 
-    const avgSaleInput = document.getElementById('avgSaleInput').value;
+    const avgSaleInput = parseInt(document.getElementById('avgSaleInput').value);
 
     addInputToTable(locationInput, minCustInput, maxCustInput, avgSaleInput);
 }
@@ -133,7 +133,7 @@ const paris = new Stand('Paris', 20, 38, 2.3);
 const lima = new Stand('Lima', 2, 16, 4.6);
 
 const standLocations = [seattle, tokyo, dubai, paris, lima];
-const hourlyTotalSales = [];
+let hourlyTotalSales = [];
 
 
 // grab sales div
@@ -173,12 +173,9 @@ function genDailyLocationTotalHeader(headerRowElem) {
 
 // add footer row with sales totals per hour
 function genFooterRow() {
-    // create total row
-    const totalRowElem = document.createElement('tr');
 
-    // set id for table row
+    const totalRowElem = document.createElement('tr');
     totalRowElem.setAttribute('id', 'total-row');
-    // Append total row to table
     salesTableElem.appendChild(totalRowElem);
 
     // create 'Total' cell at beginning of row
@@ -187,7 +184,7 @@ function genFooterRow() {
     totalRowElem.appendChild(thCell);
     // set cell content to 'Totals'
     thCell.textContent = 'Totals';
-
+    genHourlyTotalSales();
     // iterate through hours, add up total sales of all stores for each hour
     for (let i = 0; i < hours.length; i += 1) {
         // create sales data cell
@@ -195,7 +192,6 @@ function genFooterRow() {
         // append sales data cell to row
         totalRowElem.appendChild(tdCell);
         // calculate hourly totals, populate hourlyTotals array
-        genHourlyTotalSales();
 
         // get total sales for current hour
         let sales = hourlyTotalSales[i];
@@ -215,6 +211,8 @@ function genFooterRow() {
 
 // calculate total sales of all locations per hour
 function genHourlyTotalSales() {
+    //console.log('StandLocations: ' + standLocations);
+    hourlyTotalSales = [];
     for (let i = 0; i < hours.length; i += 1) {
 
         // total for each time slot
@@ -223,10 +221,13 @@ function genHourlyTotalSales() {
         for (let j = 0; j < standLocations.length; j += 1) {
             const currentStand = standLocations[j];
             let sale = currentStand.hourlySales[i];
+            
             salesTotal += sale;
+            console.log('SALE: ' + sale + ' ' + salesTotal);
         }
         // push total sales for current hour to array
         hourlyTotalSales.push(salesTotal);
+        console.log('hourly total sales: ' + hourlyTotalSales);
     }
 }
 

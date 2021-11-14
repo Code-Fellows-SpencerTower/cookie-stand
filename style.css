@@ -52,7 +52,7 @@ body {
 .location-parent-div p {
     text-align: center;
     margin: 8px;
-    font-family: 'Roboto', sans-serif;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 16px;
 }
 
@@ -121,8 +121,10 @@ fieldset {
 }
 
 table {
-    font-family: 'Roboto', sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
+    color:rgb(34, 59, 59);
     border-spacing: 0px 0px;
+    background-color: rgb(255, 195, 203);
     text-align: center;
     border: 1px black;
     border-collapse: collapse;
@@ -142,14 +144,14 @@ td {
 }
 
 form {
-    font-family: 'Roboto', sans-serif;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     width: 30%;
     margin-left: auto;
     margin-right: auto;
 }
 
 #submit-btn {
-    font-family: 'Roboto', sans-serif;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -177,7 +179,7 @@ header {
 }
 
 p {
-    font-family: 'Roboto', sans-serif;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     margin: 30px;
     margin-top: 0px;
 }
@@ -195,7 +197,8 @@ p {
 }
 
 figure {
-    font-family: 'Roboto', sans-serif;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: darkorange;
     justify-content: center;
 }
 

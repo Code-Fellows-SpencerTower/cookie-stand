@@ -4,6 +4,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 /* font-family: 'Roboto', sans-serif; */
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+/* font-family: 'Roboto', sans-serif; */
+
 h1 {
     color: salmon;    
     font-family: 'Righteous', cursive;
@@ -13,6 +16,17 @@ h1 {
     border-bottom: lightgrey solid;
     border-width: thin;
     margin-bottom: 80px;
+}
+
+h2 {
+    color: salmon;    
+    font-family: 'Righteous', cursive;
+    text-align: center;
+    font-size: 40px;
+    border-top: lightgrey solid;
+    border-width: thin;
+    padding-top: 50px;
+
 }
 
 body {
@@ -30,6 +44,9 @@ body {
     display: flex;
     justify-content: space-between;
     margin-top: 40px;
+    border-top: lightgrey solid;
+    border-width: thin;
+    padding-top: 50px;
 }
 
 .location-parent-div p {
@@ -60,6 +77,11 @@ body {
     width: 200px;
 }
 
+.shop-img {
+    height: 250px;
+    width: 250px;
+}
+
 footer {
     margin-top: 50px;
     text-align: center;
@@ -67,6 +89,7 @@ footer {
     border-width: thin;
     padding: 10px;
     font-family: 'Roboto', sans-serif;
+
 }
 
 #contact-info {
@@ -96,3 +119,95 @@ form {
 fieldset {
     margin: 20px;
 }
+
+table {
+    font-family: 'Roboto', sans-serif;
+    border-spacing: 0px 0px;
+    text-align: center;
+    border: 1px black;
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+th {
+    font-weight: bold;
+    border: solid 1px black;
+    padding: 8px;
+}
+
+td {
+    border: 1px solid black;
+    padding: 8px;
+}
+
+form {
+    font-family: 'Roboto', sans-serif;
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#submit-btn {
+    font-family: 'Roboto', sans-serif;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#shop-images-div {
+    display: flex;
+    justify-content: center;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+}
+
+#family {
+    height: 200px;
+    width: 300px;
+    padding-right: 10px;
+}
+
+#fish-school {
+    max-height: 100px;
+    max-width: 100px;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+    margin: 30px;
+    margin-top: 0px;
+}
+
+#about-us-container {
+    display: flex;
+    justify-content: center;
+    width: 1300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#shop-images-div {
+    justify-content: center;
+}
+
+figure {
+    font-family: 'Roboto', sans-serif;
+    justify-content: center;
+}
+
+figure figcaption {
+    text-align: center;
+    margin-top: 25px;
+}
+
+#chinook {
+    max-width: 300px;
+    max-height: 180px;
+}
+
+
+

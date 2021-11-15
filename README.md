@@ -36,6 +36,3 @@ Form
 - [x] include constructor properties in form
 - [x] insert new store row before total row
 - [x] totals update to reflect new store
-- [ ] refactor code that appears 3 times or more
-- [ ] validate html via html5 validator
-- [ ] follow single-responsibility for functions
